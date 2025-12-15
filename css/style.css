@@ -1,0 +1,45 @@
+body {
+  background-color: cadetblue;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 0;
+  padding-top: 0px;
+}
+.mensajes {
+  margin: 0 0 12px;
+  font-size: 50px;
+  color: aquamarine;
+}
+.contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px); /* resta el footer */
+}
+.card {
+  background-color: rgba(1, 87, 72, 0.486);
+  border-radius: 12px;
+  box-shadow: 0 6px 24px rgba(16, 24, 40, 0.08);
+  padding: 28px;
+  width: 1000px;
+  text-align: center;
+}
+img {
+  height: auto;
+  width: 250px;
+}
+button {
+  width: 200px; /* ancho */
+  height: 60px; /* alto */
+}
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3); /* Fondo negro con 30% de transparencia */
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  backdrop-filter: blur(5px); /* Efecto vidrio */
+}

@@ -1,0 +1,21 @@
+/* El canvas del fondo */
+#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;
+  display: block;
+  z-index: -1; /* Mantenerlo atrás */
+}
+
+Contenido encima
+.contenido {
+  position: relative;
+  z-index: 2;
+  color: #00ff80;
+  text-align: center;
+  margin-top: 10px;
+  font-family: Arial, sans-serif;
+}
