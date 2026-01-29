@@ -1,10 +1,28 @@
 <?php
 $mensaje = "";
 
+$host = "localhost";
+$usuario = "usuario_remoto";
+$password = "Adripro38#221";
+$bd = "saludos_db";
+
+$conn = new mysqli($host, $usuario, $password, $bd);
+
+if ($conn->connect_error) {
+    die("Error de conexión: " . $conn->connect_error);
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["Nombre"])) {
     $nombre = htmlspecialchars($_POST["Nombre"]);
-    $mensaje = "$nombre bienvenido a mi página";
+    $mensaje = $nombre . " Bienvenido a mi página";
+
+    $stmt = $conn->prepare("INSERT INTO saludos (saludo) VALUES (?)");
+    $stmt->bind_param("s", $mensaje);
+    $stmt->execute();
+    $stmt->close();
 }
+
+$conn->close();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["Nombre"])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
-    <!-- <script src="js/script.js" type="text/javascript"></script> -->
     <link rel="stylesheet" href="css/matrix.css">
     <title>Página Adrián Fraile</title>
     <link rel="icon" href="favicon.ico" sizes="32x32">
