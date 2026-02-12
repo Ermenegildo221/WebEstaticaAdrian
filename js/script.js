@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const nombre = document.forms["formulario"]["nombre"].value;
     
     // Llamada a la API REST
-    fetch(`http://localhost:8080/api/saludos?nombre=${encodeURIComponent(nombre)}`)
+    fetch(`http://apirest-env.eba-mhabajh2.us-east-1.elasticbeanstalk.com/api/saludos?nombre=${encodeURIComponent(nombre)}`)
       .then(response => response.json())
       .then(data => {
         if (data.estado === 'success') {
